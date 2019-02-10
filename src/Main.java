@@ -85,6 +85,7 @@ public class Main {
                                 System.out.println("Operand Two: " + operand_two);
 
                             }
+
                         }
 
                         operator_one = twostack.pop(operator);
@@ -92,17 +93,51 @@ public class Main {
 
                         if (operator_one != null && operand_one != null && operand_two != null) {
 
-                            String prefix = operator_one + operand_two + operand_one;
+                            String prefix = operator_one + operand_one + operand_two;
                             System.out.println("Prefix: " + prefix);
                             twostack.push(operand, prefix);
-
                         }
 
                     }
 
                     twostack.push(operator, Character.toString(c));
                     System.out.println("Added " + c + " to operator stack after loop");
+                }
 
+            }
+
+        }
+
+        for (int i = 0; i < twostack.size(operator); i++) {
+            while (i < twostack.size(operator)) {
+
+                System.out.println("I AM THE LOOOP, I AM WORKING !!!");
+
+                String operator_one = null;
+                String operand_one = null, operand_two = null;
+
+                if (!twostack.isEmpty(operand)) {
+
+                    operand_one = twostack.pop(operand);
+                    System.out.println("Operand One: " + operand_one);
+
+                    if (!twostack.isEmpty(operand)) {
+
+                        operand_two = twostack.pop(operand);
+                        System.out.println("Operand Two: " + operand_two);
+
+                    }
+
+                }
+
+                operator_one = twostack.pop(operator);
+                System.out.println("Operator: " + operator_one);
+
+                if (operator_one != null && operand_one != null && operand_two != null) {
+
+                    String prefix = operator_one + operand_one + operand_two;
+                    System.out.println("Prefix: " + prefix);
+                    twostack.push(operand, prefix);
                 }
 
             }
