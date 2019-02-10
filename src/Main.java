@@ -2,9 +2,10 @@ import exceptions.IllegalOperatorException;
 
 public class Main {
 
-    private static TwostackArray<String> twostack = new TwostackArray<>(100);
     private static boolean operand = false;
     private static boolean operator = true;
+
+    private static TwostackArray<String> twostack = new TwostackArray<>(100);
 
     private static boolean isOperand(char c) {
         return Character.isAlphabetic(c) || Character.isDigit(c);
@@ -64,31 +65,34 @@ public class Main {
 
                 } else {
 
-                    System.out.println("I supposed to run the loop right after this <---");
+                    System.out.println("I'm supposed to run the loop right after this <---");
 
                     while (!twostack.isEmpty(operator) && getOperatorPrecedent(c) > getOperatorPrecedent(peekChar(operator))) {
 
                         System.out.println("I AM THE LOOOP, I AM WORKING !!!");
 
-                        String operator_one;
+                        String operator_one = null;
                         String operand_one = null, operand_two = null;
 
-                        if (twostack.isEmpty(operand)) {
+                        if (!twostack.isEmpty(operand)) {
 
-                             operand_one = twostack.pop(operand);
+                            operand_one = twostack.pop(operand);
+                            System.out.println("Operand One: " + operand_one);
 
-                             if (twostack.isEmpty(operand)) {
+                             if (!twostack.isEmpty(operand)) {
 
                                 operand_two = twostack.pop(operand);
+                                System.out.println("Operand Two: " + operand_two);
 
                             }
                         }
 
                         operator_one = twostack.pop(operator);
+                        System.out.println("Operator: " + operator_one);
 
                         if (operator_one != null && operand_one != null && operand_two != null) {
 
-                            String prefix = operator_one + operand_one + operand_two;
+                            String prefix = operator_one + operand_two + operand_one;
                             System.out.println("Prefix: " + prefix);
                             twostack.push(operand, prefix);
 
