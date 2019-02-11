@@ -7,7 +7,9 @@ public class TwostackEmptyException extends RuntimeException {
      * detail message.  The cause is not initialized, and may subsequently be
      * initialized by a call to {@link #initCause}.
      */
-    public TwostackEmptyException() {}
+    public TwostackEmptyException() {
+        super("TwostackArray<E> array index underflow");
+    }
 
     /**
      * Constructs a new runtime exception with the specified detail message.

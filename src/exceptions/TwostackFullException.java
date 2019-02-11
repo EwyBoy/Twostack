@@ -8,7 +8,7 @@ public class TwostackFullException extends RuntimeException {
      * initialized by a call to {@link #initCause}.
      */
     public TwostackFullException() {
-        super("Array is full");
+        super("TwostackArray<E> array index overflow");
     }
 
     /**
